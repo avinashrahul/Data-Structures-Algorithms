@@ -1,4 +1,12 @@
 require 'pry'
+
+# quicksort's worst-case running time is Θ(n2)
+
+# quicksort's best-case running time is Θ(nlog(n))
+
+# quicksort's average-case running time is Θ(nlog(n))
+
+
 # Ruby uses by default Quick Sort ALgorithm to sort an array when .sort is used
 #
 # We pick a random Pivot and then Iterate over that Picot through the array
@@ -16,19 +24,29 @@ require 'pry'
 
 #lets use meta programming to solve this
 
-class Array
-  def quick_sort
-    return [] if empty?
-    pivot = delete_at(rand(size)) # Pulls out the random VALUE
-    # partition is ruby array method which partitions into two arrays based on some condition
-    # If random pivot is 21
-    # left = [13, 17, 18, 15, 11, 19, 15]
-    # right = [41]
-    left, right = partition(&pivot.method(:>))
+def quicksort(arr)
+  if arr.length <=1
+    return arr
+  else
+    # Pick a random pivot and delete from array
+    pivot = arr.sample
+    arr.delete_at(arr.index(pivot))
+    less = []
+    greater = []
+    arr.each do |e|
+      if e <= pivot
+        less << e
+      else
+        greater << e
+      end
+    end
 
-    # Iterate calling multiple times of the same method
-    return *left.quick_sort, pivot, *right.quick_sort
+    sorted_array = []
+    sorted_array << quicksort(less)
+    sorted_array << pivot
+    sorted_array << quicksort(greater)
+    sorted_array.flatten
   end
 end
 
-print [13, 17, 18, 15, 21, 11, 19, 15, 41].quick_sort
+print quicksort([5, 5, -5, -5, 11, 11, 0, 0, 3, 3])
