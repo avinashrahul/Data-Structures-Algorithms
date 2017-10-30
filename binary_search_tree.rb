@@ -1,3 +1,9 @@
+# BST - Worst case
+# Access, search, insertion, deletion - O(n)
+
+# Best case
+# Access, search, insertion, deletion - O(log n)
+
 require 'pry'
 class Node
   attr_accessor :data, :left, :right
@@ -25,7 +31,6 @@ class Node
 
   def search(node_data)
     return nil if data.nil?
-
     if node_data == data
       return self
     elsif node_data < data
@@ -41,12 +46,9 @@ class Node
     end
   end
 
-  # def to_a(mode = :preorder)
-  #   return nil if data.nil?
-
-  #   method_name = 'to_a_' + (MODES.include?(mode) ? mode : :preorder).to_s
-  #   send(method_name)
-  # end
+  def children
+    [@left, @right].compact
+  end
 
   protected
 
@@ -56,6 +58,59 @@ class Node
 
     node.data = node.left = node.right = nil
   end
+end
+
+tree = Node.new
+tree.insert(Node.new(5))
+tree.insert(Node.new(10))
+tree.insert(Node.new(4))
+tree.insert(Node.new(2))
+tree.insert(Node.new(12))
+# puts tree.search(12).inspect
+# puts tree.destroy(4).inspect
+# puts tree.search(5).inspect
+
+puts "Breadth first search"
+def bfs(node)
+  queue = []
+  queue.push(node)
+
+  while(queue.size != 0)
+    n1 = queue.shift
+    puts n1.data
+    n1.children.each do |child|
+      queue.push(child)
+    end
+  end
+end
+
+bfs(tree)
+
+puts "$$$$$$$$$$$$$$$$"
+
+puts "Depth first search"
+def dfs(node)
+  puts node.data
+  node.children.each do |child|
+    dfs(child)
+  end
+end
+
+dfs(tree)
+
+puts tree.inspect
+
+
+
+  # def to_a(mode = :preorder)
+  #   return nil if data.nil?
+
+  #   method_name = 'to_a_' + (MODES.include?(mode) ? mode : :preorder).to_s
+  #   send(method_name)
+  # end
+
+
+  # $$$$$ - Inside protected
 
   # Pre-order displays root node, left node and then right node
   # def to_a_preorder
@@ -86,15 +141,3 @@ class Node
 
   #   tree
   # end
-end
-
-tree = Node.new
-tree.insert(Node.new(5))
-tree.insert(Node.new(10))
-tree.insert(Node.new(4))
-tree.insert(Node.new(2))
-tree.insert(Node.new(12))
-puts tree.search(4).inspect
-puts tree.destroy(4).inspect
-puts tree.search(5).inspect
-puts tree.inspect
