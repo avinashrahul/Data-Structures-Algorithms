@@ -1,0 +1,800 @@
+where.not
+
+patch verb
+
+turbolinks
+
+before_filter to before_action
+
+rails 4 needs ruby of 1.9.3
+
+rails 4 no longer supports loading plugins from marathon/plugins
+
+
+
+behavioral:
+
+Recurly failure implement BAMS/resque
+  2. DVR (from real time to rabbit mq)
+
+  3. Server multiple requests (added a lock time)
+
+  4. Admin tool studio for business to manage packages, channels etc. before business waits for deployments.
+
+
+
+whenever I get some free time I like to solve puzzles from interview cake.
+
+
+
+Learning with others
+
+
+
+Research Now - Target right customers, in_threads gem, parallel gem
+
+
+
+web, app servers -> why use unicorn/passenger and nginx
+
+
+
+
+
+Goals, Ambition
+
+
+
+
+
+Background:
+
+Bachelors and masters in computer science. 
+
+
+
+Questions to them:
+
+
+
+Challenges that this position could face and be ready with?
+
+typical day of this position would be?
+
+how do you describe culture here?
+
+What is typical timeline for getting back to candidates about next steps?
+
+
+
+strengths: - patience, go deep in learning in  various site if I don’t know something, express/appreciate someone if I dint know something, I don hesitate to ask questions, I consider myself its my business, I love what I do
+
+
+
+weakness - I like to write more efficient and performance code upfront. sometimes I may cross deadlines.
+
+
+
+update_attibute(will not run validations) vs update_attibutes
+
+
+
+Rails Active record locking mechanisms
+
+Optimistic locking (have a column lock_counter in database and do an update for every request)
+
+Pessimistic locking (Use active records .lock property. Package.lock.first and wrap in a transaction block for saves. Also you can lock in share mode(others can read))
+
+
+
+https://github.com/MaximAbramchuck/awesome-interview-questions#ruby
+
+valid_genres = %w|classical rock house country hip_hop rnb|
+
+Routes Constraints - resource :music, only: [:show], constraints: {id: Regexp.new(valid_genres.join('|'))}
+
+
+
+Render - it is used to create the content.
+
+Redirect - issues new request to browser.
+
+ 
+
+join types - inner, left outer join, right outer join, full outer join(all rows with no duplicates)  (there are no left inner and left outer join types.)
+
+
+
+
+
+Ruby 1.9 vs Ruby 2:
+
+
+
+Speeds up startup, improved GC
+
+introduces array of symbols - %i(hello world) => [:hello, :world] like %w
+
+
+
+you can make a method available on every Ruby object by defining it on the Kernel module.
+
+
+
+REST constraint(HATEOAS) - link discovery -  https://en.wikipedia.org/wiki/HATEOAS (check example) -> API should not know anything about our system.
+
+In the response we send links to other APIS.
+
+
+
+Active Model Serializers - (custom JSON responses) to send only few model column values in JSON, easily set relationships in JSON. We will have serializer for every model.
+
+
+
+Gem:
+
+
+
+rails plugin new hola
+
+ it creates a new file in lib/hola.rb
+
+gem build hola.gemspec (builds gem locally)
+
+gem install hola.gem (installs gem)
+
+
+
+sweeper - used to handle in expiring the model caches.
+
+
+
+Object - Any entity that has state and behavior is known as an object.
+
+Class - Collection of objects is called class. It is a logical entity.
+
+
+
+Inheritance - When one object acquires all the properties and behaviours of parent object i.e. known as inheritance. 
+
+Polymorphism - When one task is performed by different ways. Ex: to draw something e.g. shape or rectangle etc.
+
+Abstraction - Hiding internal details and showing functionality. example: phone call, we don't know the internal processing.
+
+Encapsulation - Binding (or wrapping) code and data together into a single unit is known as encapsulation.
+
+
+
+Symbols(immutable - reusable) vs Strings - A simple rule of thumb is to use symbols every time you need internal identifiers. Use Strings to o/p the results.
+
+
+
+Class vs Instance - Class variables are shared by all objects in a class, Instance variables belong to a single object.
+
+
+
+Proc(anonymous functions) vs lambda - Proc.new {}, lamda {}, Both gets executed upon .call, Lambda is strict on arguments and always return last statement.
+
+private vs Protected - Protected methods are only accessible to objects within the same class. Private methods are only accessible within the same instance.
+
+each_with_index vs with_index - with_index takes an optional parameter to start with but other will not have any optional parameter.
+
+[1, 2, 3, 4].each.with_index(2) do |value, index|
+
+end
+
+Garbage Collector - frees up memory for other processes by removing pointers and inaccessible objects after a program has executed.
+
+
+
+super - sends all arguments to parent method that this method got passed vs super() - no arguments
+
+
+
+Duck Typing -  NO TYPE CHECKING for parameters. less concerned with the class of an object and more concerned with what methods can be called on it and what operations can be performed on it.
+
+
+
+array prepend - arr = [1, 2, 3].   arr.unshift(100) = [100, 1, 2, 3]
+
+
+
+
+
+uniq vs uniq! BANG - Modifies the calling object, without bang - does not modify calling object
+
+
+
+Ord - gets Numeric value of character - ‘a’.ord = 97, && 97.chr = ‘a’
+
+
+
+&&, and - and is lower precedence and && is higher precedence
+
+
+
+&, && - & is a bitwise. It compares bit representation of
+
+
+
+eql? —> checks value and type of two objects. equal? —> returns true if both objects have same object_id
+
+
+
+concat, += —> concat is speed since += always return third object while concat only appends.
+
+
+
+Fibonacci - (1..20).inject( [0, 1] ) { | fib | fib << fib.last(2).inject(:+) }
+
+Factorial - (1..5).inject(:*) || 1
+
+
+
+rakefile -
+
+
+
+string reverse without .reverse -  "hello world".chars.inject([]){|a, b| a.unshift(b)}.join or "hello world".chars.inject {|a, b| b + a}
+
+.each vs .map —> return value differs, map gives exact o/p.
+
+
+
+Method Invoke - object = Class.new, object.method name, object.send(:object_id), object.method(:object_id).call
+
+
+
+%W vs %w - %W it is possible to define an array containing string interpolation.
+
+
+
+LocalJumpErrorb - Having yield but no block is passed
+
+
+
+offset - skips record
+
+ 
+
+HTML5:
+
+Deliver rich content, better semantic support, graphics
+
+localStorage - permanent, until web app deletes it.
+
+sessionStorage - until the window is closed
+
+meta - metadata about the HTML document (author, last modified etc). Goes inside <head> element
+
+viewport - users visible area of a webpage
+
+HTML5 has a new attribute charset(UTF-8).
+
+<!DOCTYPE html> - instruction to web browser about the HTML version
+
+<data-list> - list of predefined options for a input dropdown. It is auto filled.
+
+iframe - used to embed another document with current HTML document.
+
+
+
+CSS3:
+
+class selector can be applied to multiple HTML elements, whereas ID selectors are unique..
+
+Pseudo elements are made using a double colon (::) followed by the name of the pseudo element.
+Pseudo-elements are used to add special effects to some selectors
+Most commonly used pseudo-elements are ::first_line, ::first_letter, ::before, ::after
+The z-index helps specify the stack order of positioned elements that may overlap one another.
+
+
+
+div - is a block element (has a line break before and after it), span is a inline element (no line break)
+
+
+
+Pseudo-class:
+
+/* visited link */
+
+a:visited {
+
+    color: #00FF00;
+
+}
+
+
+
+display:none(does not occupy any space) vs visibility:hidden(elements gets hidden but occupies space in web page)
+
+Pseudo class - defines special state of an element - (style an element where user mouses over it)
+
+ a:hover {color: ‘blue’}
+
+Pseudo Element - style specific part of an element. Like First character or First line.
+
+p::first-line {color: ‘blue’}
+
+
+
+
+
+PLSQL:
+
+A trigger is a PL/SQL program that is stored in the database and executed immediately before or after the INSERT, UPDATE, and DELETE commands.
+
+
+
+like binary makes this as case insensitive - %sassABC%
+
+
+
+cursor is namespace
+
+
+
+A function returns a value and a stored procedure doesn’t return a value.
+
+
+
+
+
+begin, execute, exception
+
+
+
+function, stored pro, cursor
+
+
+
+Static Type - A language is statically typed if the type of a variable is known at compile time. (C, Java - Need to declare type of variable upfront)
+
+
+
+Dynamic Type - A language is dynamically typed if the type of a variable is known at run time. (Ruby - NO Need to declare type of variable upfront)
+
+
+
+SQL - having vs where
+
+The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions. EX: COUNT
+
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 5;
+
+
+
+Javascript:
+
+The simplest way of saying that, == will not check types and === will check whether both sides are of same type.
+
+Prototypical Inheritance - instances inherit directly from other objects
+
+composition vs Inheritance - Composition can avoid class hierarchies, tight coupling
+
+Function composition is the process of combining two or more functions to produce a new function.
+
+React - One way data, Angular two way data
+
+Monolithic vs microservice - Monolithic(share same space and resources)
+
+Closure - is a function defined in other function but has access to parent variable scope
+
+Hoisting - moving variable declarations to the top
+
+use Strict - enforce stricter parsing and error handling on your JavaScript code at runtime. You can not use variables until declared.
+
+
+
+Angular JS:
+
+ difference between reactjs and angularjs is that React is JS-centric, while Angular remains HTML-centric. 
+
+The this keyword refers to the current object the code is being written inside 
+
+Scope is an object that refers to the application model. Scope acts like a bridge between view and model.
+
+Services - sharing data between controllers ($http)
+
+ng-show/ng-hide will always insert the DOM element, but will display/hide it based on the condition.
+
+DOM Manipulations should not exist in controllers, services or anywhere else but in directives.
+
+Two way binding implies that the scope variable will change it’s value everytime its model is assigned to a different value
+
+ directive, it can be used as an attribute, element or class name. 
+
+Use an element when you are creating a component that is in control of the template. Use an attribute when you are decorating an existing element with new functionality.
+
+Directive -  directives define the UI while defining a single page app. (ng-bind, ngModel, ngClass)
+
+Singleton - restricts the use of a class more than once.
+
+RootScope - is a parent object of all “$scope” angular objects created in a web page. $scope is created with ng-controller while $rootscope is created with ng-app 
+
+
+
+Angular 2 is entirely component based. Controllers and $scope are no longer used. They have been replaced by components and directives. Components are directives with a template. 
+
+
+
+function($scope){
+
+   $scope.comparison =”Angular 1 vs Angular 2”
+
+}
+
+//is replaced by Angular 2
+
+constructor(){
+
+   this.comparison =”Angular 1 vs Angular 2”
+
+}
+
+Angular 2.0 is made keeping in mind mobile oriented architecture.
+
+
+
+React JS:
+
+Component Lifecycle - Initialization, State/property updates, Unmounting components.
+
+JSX - JSX that embeds raw HTML templates inside JavaScript code
+
+React - referred to as just the “V” (View) in an “MVC” architecture
+
+Element vs Component - React element describes what you want to see on the screen. React Component = React Element + few other things inside a function.
+
+If your component has state or a lifecycle method(s), use a Class component. Otherwise, use a Functional component.
+
+Keys - Keys are what help React keep track of what items have changed, been added, or been removed from a list.
+
+AJAX requests should go in the componentDidMount lifecycle event.
+
+Refs -  provides us quick and simple access to the DOM Element
+
+FLUX Pattern - Action -> Dispatcher ->Store -> View Ex: Redux
+
+
+
+JQuery:
+
+ $ - used as an alias for the jQuery object and jQuery() function
+
+Method chaining is a feature of jQuery that allows several methods to be executed on a jQuery selection in sequence in a single code statement. 
+
+
+
+jQuery.get() is a shortcut method that uses jQuery.ajax() under the hood, to create an Ajax request that is typical for simple retrieval of information. 
+
+
+
+event.stopPropagation() stops an event from bubbling up the event chain, whereas event.preventDefault() only precludes the browser’s default action on that event from occurring, but the event still propogates up the event chain.
+
+
+
+The .clone() method performs a deep copy of the set of matched elements, meaning that it copies the matched elements as well as their descendant elements and text nodes.
+
+
+
+The .promise() method returns a dynamically generated Promise that is resolved once all actions of a certain type bound to the collection, queued or not, have ended.
+
+
+
+
+
+The .detach() and .remove() methods are the same, except that .detach() retains all jQuery data associated with the removed elements and .remove() does not. .detach() is therefore useful when removed elements may need to be reinserted into the DOM at a later time.
+
+
+
+
+
+Javascript Prototype
+
+
+
+Ruby:
+
+`require` reads and parses files only once, when they were referenced for the first time. DOES NOT LOAD FILE OVERTIME.
+
+
+
+`load` reads and parses files every time you call `load`. LOADS FILE OVERTIME WHEN SCRIPT IS EXECUTED.
+
+	include  — mixes in specified module methods as instance methods in the target class
+	extend   — mixes in specified module methods as class methods in the target class
+=======
+
+GIT:
+
+Rebase - I want my feature branch to a new starting point - git checkout feature1; git rebase master
+
+Merge - Takes all changes from one branch and merges them into other with one commit
+
+
+
+
+
+Data Structures:
+
+
+
+Two data types - Built-in(int, bool, float), Derived(List, Array, Stack,)
+
+
+
+Linked list types - Simple (Navigation is forward only), Doubly, Circular
+
+
+
+Linear Search - sequential search in a Array  — O(n)
+
+
+
+Binary search - Array needs to be sorted. Always find mid values and then return success — O(log n)
+
+
+
+Interpolation Search (Positioning Search) —- O(log (log n))
+
+
+
+Bubble Sort - Upon sorting it does not require any extra space.
+
+Merge Sort - Requires additional space upon sorting an array
+
+Quick Sort - patrons data into small arrays  - O (n2)
+
+
+
+Depth First Search - Uses Stack and mark visited to adjacent nodes
+
+Breadth First Search - Uses Queue
+
+
+
+Binary Search - A node's left child must have a value less than its parent's value and the node's right child must have a value greater than its parent value.
+
+
+
+Asymptotic notations - Best Case (Omega(n)), Worst Case (O(n)), Average case - (Theta(n))
+
+
+
+Big O Complexity: (from horrible to best)
+
+
+
+O(n!), O(2 power n), O(n power 2), O(n log n), O(n), O(log n), O(1)
+
+
+
+https://stackoverflow.com/questions/11032015/how-to-find-time-complexity-of-an-algorithm
+
+
+
+(We are interested in the performance of the algorithm as N becomes large.) Constant factor and depends on size of input
+
+
+
+recent learnings:
+
+
+
+How to use joins and scopes together:
+
+
+
+like - Article.joins(:comments).enabled (enabled - is a scope on comment model)
+
+
+
+Solution - Article.joins(:comments).merge(Comment.enabled)   ——> use merge
+
+
+
+If I'm just filtering, use joins.
+If I'm accessing relationships, start with includes.
+If includes is slow using two separate queries, I'll use eager_load to force a single query and compare performance.
+
+
+Yo can access browser cookies in rails app by just - cookies method
+
+
+
+
+
+Single Table Inheritance
+
+
+
+If you want to share properties to other models - Car, truck, Bike (color, etc) 
+
+
+
+we create a base model Vehicle which has Type column -> (rails g model vehicle type:string color:string)
+
+
+
+then generate other models
+
+
+
+rails g model car —parent=Vehicle (class Car < Vehicle; end)
+
+
+
+Deadlock is the condition that occurs when all threads are waiting to acquire a resource held by another thread. 
+
+
+
+RabbitMQ
+
+
+
+Use bunny to create a connection 
+
+create a channel from a connection
+
+create a queue from channel
+
+Publish a message to this queue name
+
+close connection
+
+
+
+
+
+"the number of times we can repeatedly halve, starting at 
+
+n
+
+, until we get the value 1, plus one." But that's inconvenient to write out. Fortunately, there's a mathematical function that means the same thing as the number of times we repeatedly halve, starting at 
+
+n
+
+n, until we get the value 1: the base-2 logarithm of 
+
+n
+
+n. We write it as 
+
+\lg n
+
+logn.
+
+
+
+Insertion/Deletion is faster in Linked List and access is faster in Arrays.
+
+
+
+Stack - used for undo in editors - they keep all text changes in a stack.
+
+
+
+
+
+DFS - Stack
+
+Advantage - requires less memory
+
+Disadvantage - doesn’t find a shortest path
+
+
+
+BFS - Queue
+
+Advantage - it will find the shortest path.
+
+Disadvantage - requires more memory
+
+
+
+Memoization ensures that a function doesn't run for the same inputs more than once by keeping a record of the results for the given inputs (usually in a hash).
+
+
+
+Heap Tree - All child nodes should be smaller than parent. Left and Right order does not matter
+
+
+
+Dynamic Scaffolding allows the generation of new, edit and deletes methods for the use in application. 
+
+
+
+Whereas, Static Scaffolding doesn’t allow any such generation to, take place.
+
+
+
+Devise:
+
+
+
+before_action :authenticate_user!, except: [:index, :show]
+user_signed_in?
+
+
+cancancan:
+
+
+
+rails g cancan:ability
+in ability.rb ->
+   can :manage, :all
+
+
+destroy vs delete - destroy deletes asssociations and calls callbacks, delete do not call callbacks, just removes record
+
+
+
+after_commit is fired after the transaction is complete. And we can specify on option.
+
+after_commit :do_foo, on: :create
+
+But after_create is called before call to save.
+
+
+
+CSRF - hacker puts a link in website. Avoid - protect_from_forgery with: :exception where it now puts a security token that only our site validates for every request.
+
+
+
+XSS - insert malicious code in the website
+
+
+
+==========
+
+Polymorphic association:
+
+
+
+comment model, employee model, department model
+
+
+
+An employee and department can have multiple comments
+
+
+
+so in comment model - create commentable_type, commentable_id
+
+
+
+class Comment
+
+belongs_to :commentable, polymorphic: true
+
+end
+
+
+
+class Employee 
+
+has_many :comments, as: :commentble
+
+end
+
+============
+
+
+
+Rack Middleware:
+
+https://stackoverflow.com/questions/2256569/what-is-rack-middleware?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+Always have a call method.
+
+config.ru file if present => says to run Fakeblock application (application.rb file) “run Fakeblock::Application“
+
+rack supports creation of middleware layers
+
+rack expects back array of - http status, headers, body
+
+Example - we could write a rack middleware to capture the processing time for every request
+
+========
+
